@@ -18,6 +18,6 @@ public class MatchCategorySummary
 
     public override string ToString()
     {
-        return $"{CategoryName} Matches:\n{Summary}\n";
+        return $"{CategoryName} Matches: \n{Summary}\n";
     }
 }

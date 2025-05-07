@@ -32,6 +32,6 @@ public class MatchDataSummary
     public override string ToString()
     {
         return $"Kills: {AverageKills:F1}, Deaths: {AverageDeaths:F1}, Assists: {AverageAssists:F1}, " +
-               $"Damage: {AverageDamageDealt:F0}, KDA: {AverageKDA:F2}, Win Rate: {WinRate:F1}%";
+               $"Damage: {AverageDamageDealt:F0}, KDA: {AverageKDA:F2}, CS: {AverageCS:F1}, Vision Score: {AverageVS:F1} Win Rate: {WinRate:F1}%";
     }
 }

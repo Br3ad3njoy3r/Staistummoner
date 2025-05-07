@@ -34,6 +34,12 @@ public class APIHandler
             return null;
         }
     }
+    public (List<MatchData> Ranked, List<MatchData> Normal) CategorizeMatches(List<MatchData> matches)
+    {
+        var ranked = matches.Where(m => m.QueueType == "SUMMONERS_RIFT_5V5_RANKED_SOLO").ToList();
+        var normal = matches.Where(m => m.QueueType == "SUMMONERS_RIFT_5V5_DRAFT_PICK").ToList();
+        return (ranked, normal);
+    }
 
     public List<string> GetMatchIds(string puuid, int count = 50)
     {
