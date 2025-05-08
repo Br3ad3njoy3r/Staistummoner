@@ -19,7 +19,7 @@ public class APIHandler
     {
         _api = RiotGamesApi.NewInstance(apiKey);
     }
-
+    #region GetSummoner
     public Summoner? GetSummoner(string gameName, string tagLine, string platformRegion)
     {
         try
@@ -34,6 +34,8 @@ public class APIHandler
             return null;
         }
     }
+    #endregion
+    #region GetMatchData
     public (List<MatchData> Ranked, List<MatchData> Normal) CategorizeMatches(List<MatchData> matches)
     {
         var ranked = matches.Where(m => m.QueueType == "SUMMONERS_RIFT_5V5_RANKED_SOLO").ToList();
@@ -89,4 +91,5 @@ public class APIHandler
 
         return matchDataList;
     }
+    #endregion
 }

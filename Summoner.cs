@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 public class Summoner
 {
+    #region Properties
     public string GameName { get; set; }
     public string TagLine { get; set; }
     public string Puuid { get; set; }
     public string Region { get; set; }
+    #endregion
 
     public Summoner(string gameName, string tagLine, string puuid, string region)
     {

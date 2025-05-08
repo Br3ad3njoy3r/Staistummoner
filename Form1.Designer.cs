@@ -47,150 +47,240 @@
             btnDamage = new Button();
             btnCS = new Button();
             btnVision = new Button();
-            btnWins = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            btnKills = new Button();
+            btnDeaths = new Button();
+            btnAssists = new Button();
+            panelData = new Panel();
             ((System.ComponentModel.ISupportInitialize)chartRanked).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartNormal).BeginInit();
             SuspendLayout();
             // 
             // txtGameName
             // 
-            txtGameName.Location = new Point(2, 8);
+            txtGameName.BackColor = Color.RoyalBlue;
+            txtGameName.ForeColor = SystemColors.WindowText;
+            txtGameName.Location = new Point(12, 38);
             txtGameName.Name = "txtGameName";
             txtGameName.Size = new Size(392, 31);
             txtGameName.TabIndex = 0;
             // 
             // txtTagLine
             // 
-            txtTagLine.Location = new Point(400, 8);
+            txtTagLine.BackColor = Color.RoyalBlue;
+            txtTagLine.Location = new Point(410, 38);
             txtTagLine.Name = "txtTagLine";
             txtTagLine.Size = new Size(166, 31);
             txtTagLine.TabIndex = 1;
-            txtTagLine.Text = "No # included";
             // 
             // btnFetchData
             // 
-            btnFetchData.Location = new Point(680, 5);
+            btnFetchData.BackColor = Color.RoyalBlue;
+            btnFetchData.ForeColor = SystemColors.WindowText;
+            btnFetchData.Location = new Point(716, 34);
             btnFetchData.Name = "btnFetchData";
             btnFetchData.Size = new Size(112, 34);
-            btnFetchData.TabIndex = 2;
+            btnFetchData.TabIndex = 3;
             btnFetchData.Text = "Fetch Data";
-            btnFetchData.UseVisualStyleBackColor = true;
+            btnFetchData.UseVisualStyleBackColor = false;
             btnFetchData.Click += btnFetchData_Click;
             // 
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(2, 42);
+            lblStatus.ForeColor = SystemColors.Control;
+            lblStatus.Location = new Point(12, 72);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(31, 25);
-            lblStatus.TabIndex = 3;
-            lblStatus.Text = "lbl";
+            lblStatus.Size = new Size(250, 25);
+            lblStatus.TabIndex = 100;
+            lblStatus.Text = "Please Enter Your Information!";
             // 
             // chartRanked
             // 
+            chartRanked.BackColor = Color.RoyalBlue;
+            chartRanked.BorderlineColor = Color.CornflowerBlue;
             chartArea1.Name = "ChartArea1";
             chartRanked.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             chartRanked.Legends.Add(legend1);
-            chartRanked.Location = new Point(2, 74);
+            chartRanked.Location = new Point(12, 100);
             chartRanked.Name = "chartRanked";
+            chartRanked.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chartRanked.Series.Add(series1);
-            chartRanked.Size = new Size(383, 402);
+            chartRanked.Size = new Size(549, 509);
             chartRanked.TabIndex = 4;
-            chartRanked.Text = "chart1";
             // 
             // chartNormal
             // 
+            chartNormal.BackColor = Color.RoyalBlue;
             chartArea2.Name = "ChartArea1";
             chartNormal.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             chartNormal.Legends.Add(legend2);
-            chartNormal.Location = new Point(409, 74);
+            chartNormal.Location = new Point(567, 100);
             chartNormal.Name = "chartNormal";
+            chartNormal.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             chartNormal.Series.Add(series2);
-            chartNormal.Size = new Size(383, 402);
+            chartNormal.Size = new Size(549, 509);
             chartNormal.TabIndex = 5;
-            chartNormal.Text = "chart1";
+            chartNormal.TabStop = false;
             // 
             // lstSummary
             // 
+            lstSummary.BackColor = Color.RoyalBlue;
+            lstSummary.ForeColor = SystemColors.WindowText;
             lstSummary.FormattingEnabled = true;
             lstSummary.ItemHeight = 25;
-            lstSummary.Location = new Point(2, 482);
+            lstSummary.Location = new Point(12, 619);
             lstSummary.Name = "lstSummary";
-            lstSummary.Size = new Size(869, 129);
-            lstSummary.TabIndex = 6;
+            lstSummary.Size = new Size(1104, 129);
+            lstSummary.TabIndex = 200;
+            lstSummary.TabStop = false;
             // 
             // txtGameCount
             // 
-            txtGameCount.Location = new Point(572, 7);
+            txtGameCount.BackColor = Color.RoyalBlue;
+            txtGameCount.Location = new Point(582, 37);
             txtGameCount.Name = "txtGameCount";
-            txtGameCount.Size = new Size(102, 31);
-            txtGameCount.TabIndex = 7;
-            txtGameCount.Text = "# of games";
+            txtGameCount.Size = new Size(128, 31);
+            txtGameCount.TabIndex = 2;
+            txtGameCount.Text = "50";
             // 
             // btnKDA
             // 
-            btnKDA.Location = new Point(798, 74);
+            btnKDA.BackColor = Color.RoyalBlue;
+            btnKDA.Location = new Point(1130, 100);
             btnKDA.Name = "btnKDA";
             btnKDA.Size = new Size(88, 34);
-            btnKDA.TabIndex = 8;
+            btnKDA.TabIndex = 6;
             btnKDA.Text = "KDA";
-            btnKDA.UseVisualStyleBackColor = true;
+            btnKDA.UseVisualStyleBackColor = false;
             btnKDA.Click += btnKDA_Click;
             // 
             // btnDamage
             // 
-            btnDamage.Location = new Point(798, 114);
+            btnDamage.BackColor = Color.RoyalBlue;
+            btnDamage.Location = new Point(1130, 140);
             btnDamage.Name = "btnDamage";
             btnDamage.Size = new Size(88, 34);
-            btnDamage.TabIndex = 9;
+            btnDamage.TabIndex = 7;
             btnDamage.Text = "Damage";
-            btnDamage.UseVisualStyleBackColor = true;
+            btnDamage.UseVisualStyleBackColor = false;
             btnDamage.Click += btnDamage_Click;
             // 
             // btnCS
             // 
-            btnCS.Location = new Point(798, 154);
+            btnCS.BackColor = Color.RoyalBlue;
+            btnCS.Location = new Point(1130, 180);
             btnCS.Name = "btnCS";
             btnCS.Size = new Size(88, 34);
-            btnCS.TabIndex = 10;
+            btnCS.TabIndex = 8;
             btnCS.Text = "CS";
-            btnCS.UseVisualStyleBackColor = true;
+            btnCS.UseVisualStyleBackColor = false;
             btnCS.Click += btnCS_Click;
             // 
             // btnVision
             // 
-            btnVision.Location = new Point(798, 194);
+            btnVision.BackColor = Color.RoyalBlue;
+            btnVision.Location = new Point(1130, 220);
             btnVision.Name = "btnVision";
             btnVision.Size = new Size(88, 34);
-            btnVision.TabIndex = 11;
+            btnVision.TabIndex = 9;
             btnVision.Text = "Vision";
-            btnVision.UseVisualStyleBackColor = true;
+            btnVision.UseVisualStyleBackColor = false;
             btnVision.Click += btnVision_Click;
             // 
-            // btnWins
+            // label1
             // 
-            btnWins.Location = new Point(798, 234);
-            btnWins.Name = "btnWins";
-            btnWins.Size = new Size(88, 34);
-            btnWins.TabIndex = 12;
-            btnWins.Text = "Wins";
-            btnWins.UseVisualStyleBackColor = true;
-            btnWins.Click += btnWins_Click;
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(72, 25);
+            label1.TabIndex = 13;
+            label1.Text = "Riot ID ";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = SystemColors.Control;
+            label2.Location = new Point(410, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(75, 25);
+            label2.TabIndex = 14;
+            label2.Text = "Tag Line";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = SystemColors.Control;
+            label3.Location = new Point(582, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(104, 25);
+            label3.TabIndex = 15;
+            label3.Text = "# of Games";
+            // 
+            // btnKills
+            // 
+            btnKills.BackColor = Color.RoyalBlue;
+            btnKills.Location = new Point(1130, 260);
+            btnKills.Name = "btnKills";
+            btnKills.Size = new Size(88, 34);
+            btnKills.TabIndex = 201;
+            btnKills.Text = "Kills";
+            btnKills.UseVisualStyleBackColor = false;
+            btnKills.Click += btnKills_Click;
+            // 
+            // btnDeaths
+            // 
+            btnDeaths.BackColor = Color.RoyalBlue;
+            btnDeaths.Location = new Point(1130, 300);
+            btnDeaths.Name = "btnDeaths";
+            btnDeaths.Size = new Size(88, 34);
+            btnDeaths.TabIndex = 202;
+            btnDeaths.Text = "Deaths";
+            btnDeaths.UseVisualStyleBackColor = false;
+            btnDeaths.Click += btnDeaths_Click;
+            // 
+            // btnAssists
+            // 
+            btnAssists.BackColor = Color.RoyalBlue;
+            btnAssists.Location = new Point(1130, 340);
+            btnAssists.Name = "btnAssists";
+            btnAssists.Size = new Size(88, 34);
+            btnAssists.TabIndex = 203;
+            btnAssists.Text = "Assists";
+            btnAssists.UseVisualStyleBackColor = false;
+            btnAssists.Click += btnAssists_Click;
+            // 
+            // panelData
+            // 
+            panelData.Location = new Point(-17, 100);
+            panelData.Name = "panelData";
+            panelData.Size = new Size(1255, 664);
+            panelData.TabIndex = 204;
             // 
             // RiotForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(898, 623);
-            Controls.Add(btnWins);
+            BackColor = Color.MidnightBlue;
+            ClientSize = new Size(1230, 759);
+            Controls.Add(panelData);
+            Controls.Add(btnAssists);
+            Controls.Add(btnDeaths);
+            Controls.Add(btnKills);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(btnVision);
             Controls.Add(btnCS);
             Controls.Add(btnDamage);
@@ -227,6 +317,12 @@
         private Button btnDamage;
         private Button btnCS;
         private Button btnVision;
-        private Button btnWins;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Button btnKills;
+        private Button btnDeaths;
+        private Button btnAssists;
+        private Panel panelData;
     }
 }

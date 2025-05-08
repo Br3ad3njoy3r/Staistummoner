@@ -18,6 +18,7 @@ namespace RiotApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            panelData.Visible = true;
             InitializeCharts();
             lblStatus.Text = "Ready to fetch data";
         }
@@ -55,7 +56,6 @@ namespace RiotApp
                 chart.Series.Clear();
                 chart.Titles.Clear();
 
-                // Ensure the chart area exists
                 if (chart.ChartAreas.Count == 0)
                     chart.ChartAreas.Add(new ChartArea());
 
@@ -70,16 +70,17 @@ namespace RiotApp
         }
         private void PlotGraph(string chartName, List<MatchData> data, Func<MatchData, double> metricSelector, string metricLabel)
         {
-            // Choose the correct chart based on the name
             var chart = chartName == "Ranked" ? chartRanked : chartNormal;
 
-            // Clear existing data
             chart.Series.Clear();
             var series = new Series(metricLabel)
             {
                 ChartType = SeriesChartType.Line,
                 BorderWidth = 3
             };
+
+            double maxValue = data.Max(metricSelector);
+            double yMax = maxValue * 1.2; // Adds a buffer
 
             // Add points to the series
             for (int i = 0; i < data.Count; i++)
@@ -88,13 +89,47 @@ namespace RiotApp
                 series.Points.AddXY(i + 1, value);
             }
 
-            // Customize the chart appearance
             chart.Series.Add(series);
             chart.Titles.Clear();
             chart.Titles.Add($"{chartName} Games - {metricLabel}");
             chart.ChartAreas[0].AxisX.Title = "Game Number";
             chart.ChartAreas[0].AxisY.Title = metricLabel;
 
+            // Set the Y-axis scale dynamically
+            chart.ChartAreas[0].AxisY.Minimum = 0;
+            chart.ChartAreas[0].AxisY.Maximum = yMax;
+            switch (yMax) {
+                case <= 10:
+                    chart.ChartAreas[0].AxisY.Interval = 1;
+                    break;
+                case <= 50:
+                    chart.ChartAreas[0].AxisY.Interval = 5;
+                    break;
+                case <= 100:
+                    chart.ChartAreas[0].AxisY.Interval = 10;
+                    break;
+                case <= 500:
+                    chart.ChartAreas[0].AxisY.Interval = 50;
+                    break;
+                case <= 1000:
+                    chart.ChartAreas[0].AxisY.Interval = 100;
+                    break;
+                case <= 10000:
+                    chart.ChartAreas[0].AxisY.Interval = 1000;
+                    break;
+                case <= 25000:
+                    chart.ChartAreas[0].AxisY.Interval = 5000;
+                    break;
+                case <= 50000:
+                    chart.ChartAreas[0].AxisY.Interval = 10000;
+                    break;
+                case <= 100000:
+                    chart.ChartAreas[0].AxisY.Interval = 20000;
+                    break;
+                default:
+                    chart.ChartAreas[0].AxisY.Interval = 50000;
+                    break;
+            }
             lblStatus.Text = $"Displaying {metricLabel} for {chartName} games";
         }
         private bool IsDataAvailable()
@@ -115,6 +150,7 @@ namespace RiotApp
         #region Button Clicks
         private void btnFetchData_Click(object sender, EventArgs e)
         {
+            panelData.Visible = true;
             ResetGraphs();
             lblStatus.Text = "Fetching data...";
             lblStatus.Refresh();
@@ -147,6 +183,8 @@ namespace RiotApp
                 DisplaySummary();
 
                 lblStatus.Text = $"Data loaded! Ranked: {rankedMatches.Count}, Normal: {normalMatches.Count}";
+
+                panelData.Visible = false;
             }
             catch (Exception ex)
             {
@@ -156,6 +194,7 @@ namespace RiotApp
                     lblStatus.Text = $"Error: {ex.Message}";
             }
         }
+        // All the areas it says it could be null actually can't be because of the IsDataAvailable check
         private void btnKDA_Click(object sender, EventArgs e)
         {
             if (!IsDataAvailable())
@@ -198,17 +237,42 @@ namespace RiotApp
             PlotGraph("Ranked", rankedMatches, m => m.VisionScore, "Vision Score");
             PlotGraph("Normal", normalMatches, m => m.VisionScore, "Vision Score");
         }
-        private void btnWins_Click(object sender, EventArgs e)
+
+        private void btnKills_Click(object sender, EventArgs e)
         {
             if (!IsDataAvailable())
             {
                 lblStatus.Text = "No data to display!";
                 return;
             }
-            PlotGraph("Ranked", rankedMatches, m => m.Win? 1 : 0, "Wins");
-            PlotGraph("Normal", normalMatches, m => m.Win? 1 : 0, "Wins");
+            PlotGraph("Ranked", rankedMatches, m => m.Kills, "Kills");
+            PlotGraph("Normal", normalMatches, m => m.Kills, "Kills");
+        }
+        private void btnDeaths_Click(object sender, EventArgs e)
+        {
+            if (!IsDataAvailable())
+            {
+                lblStatus.Text = "No data to display!";
+                return;
+            }
+            PlotGraph("Ranked", rankedMatches, m => m.Deaths, "Deaths");
+            PlotGraph("Normal", normalMatches, m => m.Deaths, "Deaths");
+        }
+        private void btnAssists_Click(object sender, EventArgs e)
+        {
+            if (!IsDataAvailable())
+            {
+                lblStatus.Text = "No data to display!";
+                return;
+            }
+            PlotGraph("Ranked", rankedMatches, m => m.Assists, "Assists");
+            PlotGraph("Normal", normalMatches, m => m.Assists, "Assists");
         }
 
         #endregion
+
+
+
+
     }
 }

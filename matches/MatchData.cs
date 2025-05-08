@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 public class MatchData
 {
+    #region Properties
     public double Kills { get; set; }
     public double Deaths { get; set; }
     public double Assists { get; set; }
@@ -14,6 +15,7 @@ public class MatchData
     public string QueueType { get; set; }
     public double CreepScore { get; set; }
     public double VisionScore { get; set; }
+    #endregion
 
     public MatchData(double kills, double deaths, double assists, double damageDealt, bool win, double creepScore, double visionScore, string queueType)
     {

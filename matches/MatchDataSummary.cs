@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 public class MatchDataSummary
 {
+    #region Properties
     public double AverageKills { get; private set; }
     public double AverageDeaths { get; private set; }
     public double AverageAssists { get; private set; }
@@ -14,6 +15,7 @@ public class MatchDataSummary
     public double WinRate { get; private set; }
     public double AverageCS { get; private set; }
     public double AverageVS { get; private set; }
+    #endregion
 
     public void CalculateFromMatches(List<MatchData> matches)
     {
