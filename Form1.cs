@@ -157,7 +157,7 @@ namespace RiotApp
 
             try
             {
-                var apiKey = "RGAPI-d84e7864-cd2d-4c0e-acda-78007913e5c7";
+                var apiKey = "****";
                 var service = new APIHandler(apiKey);
                 var gameName = txtGameName.Text;
                 var tagLine = txtTagLine.Text;
